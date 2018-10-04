@@ -56,10 +56,10 @@ NexButton btn3radio = NexButton(2, 7, "btn3radio");         // Button down/right
 NexButton bMuteRadio = NexButton(2, 9, "bMuteRadio");       // Unmute Button
 
 //pSchalter: (ID:3)
-NexButton btn0switch = NexButton(2, 4, "btn0switch");       // Button top/left
-NexButton btn1switch = NexButton(2, 5, "btn1switch");       // Button top/right
-NexButton btn2switch = NexButton(2, 6, "btn2switch");       // Button down/left
-NexButton btn3switch = NexButton(2, 7, "btn3switch");       // Button down/right
+NexButton btn0switch = NexButton(3, 4, "btn0switch");       // Button top/left
+NexButton btn1switch = NexButton(3, 5, "btn1switch");       // Button top/right
+NexButton btn2switch = NexButton(3, 6, "btn2switch");       // Button down/left
+NexButton btn3switch = NexButton(3, 7, "btn3switch");       // Button down/right
 NexDSButton bMuteSwitch = NexDSButton(3, 9, "bMuteSwitch"); // Mute/Unmute Switch
 
 //Seiten
@@ -91,6 +91,10 @@ NexTouch *nex_listen_list[] = {
   &btn2radio,
   &btn3radio,
   &bMuteSwitch,
+  &btn0switch,
+  &btn1switch,
+  &btn2switch,
+  &btn3switch,
   NULL
 };
 
@@ -132,11 +136,11 @@ void bMuteRadioPopCallback(void *ptr) {
 void bMuteSwitchPopCallback(void *ptr) {
   Switch = !Switch;
   if (Switch == HIGH) {
-    digitalWrite(LED, HIGH);
+    digitalWrite(LED, LOW);
     Speak("OFF");
   }
   if (Switch == LOW) {
-    digitalWrite(LED, LOW);
+    digitalWrite(LED, HIGH);
     Speak("ON");
   }
 }
@@ -160,7 +164,7 @@ void btn3PushCallback(void *ptr) {
   digitalWrite(LED, HIGH);
   delay(150);
   digitalWrite(LED, LOW);
-  delay(300);
+  delay(150);
 }
 
 
