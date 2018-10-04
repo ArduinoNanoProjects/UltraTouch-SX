@@ -7,9 +7,9 @@
  \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/   
 </pre>
 
-* Design:  DesignSXv2.0.HMI
-* Display: DesignSXv2.0.tft
-* Arduino: UltraTouchSX.ino
+* Design:  DesignSX.HMI (V2.0.1)
+* Display: DesignSX.tft (V2.0.1)
+* Arduino: UltraTouchSX.ino (V6.0)
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot.png"/>
 
