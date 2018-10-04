@@ -15,13 +15,15 @@
  * Es gibt viele weitere Projekte von meinen Kollegen und der Community.
  * Schaue doch mal vorbei: https://ultraschall.fm
  * 
- * @developer   Michael McCouman Jr.
- * @version     V6
- * @date        4.Okt 2018
- * @website     https://wikibyte.org
- * 
- * Licence:     CC BY SA    
- * Github:      https://github.com/McCouman
+ * @developer         Michael McCouman Jr.
+ * @version           V6
+ * @date              4.Okt 2018
+ * @git:              https://github.com/McCouman
+ * @website           https://wikibyte.org
+ *  
+ * Licence:           CC BY-NC-SA 4.0   
+ * Link:              https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
+ * Project:           https://github.com/ArduinoNanoProjects/UltraTouch-SX
  * 
 */
 
