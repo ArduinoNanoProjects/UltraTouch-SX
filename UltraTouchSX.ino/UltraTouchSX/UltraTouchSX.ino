@@ -525,13 +525,13 @@ void setup(void) {
   /* Starte Serielle Kommunikation mit 9600 Baut */
   Serial.begin(9600);
 
-   // NeoPixel library.
+  /* Initialisieren der NeoPixel Lib */
   #if defined (__AVR_ATtiny85__)
     if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
   #endif
-  pixels.begin();   // init NeoPixel
+  pixels.begin();
   
-  /* Initialisieren der Lib: ITEADLIB_Arduino_Nextion *
+  /* Initialisieren der Lib: ITEADLIB_Arduino_Nextion */
   nexInit();
 
   /* Angaben aller Pop- und Push-Events als Callback */
@@ -625,7 +625,9 @@ void setup(void) {
   btn1switch4.attachPush(btn1PushCallback, &btn1switch4);
   btn2switch4.attachPush(btn2PushCallback, &btn2switch4);
   btn3switch4.attachPush(btn3PushCallback, &btn3switch4);
-*/ 
+*/
+
+
   /* Setze LED auf Ausgabe */
   pinMode(LED, OUTPUT);
 
