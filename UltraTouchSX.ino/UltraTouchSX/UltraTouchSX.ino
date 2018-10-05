@@ -267,7 +267,7 @@ void bMutePodcast4PushCallback(void *ptr) {
   digitalWrite(LED, HIGH);  // Turn ON internal LED
   Speak("OFF", 4);
 }
-void bMutePodcast5PopCallback(void *ptr) {
+void bMutePodcast4PopCallback(void *ptr) {
   dbSerialPrintln("bMutePodcastPopCallback");
   digitalWrite(LED, LOW);  // Turn OFF internal LED
   Speak("ON", 4);
@@ -490,7 +490,7 @@ void setup(void) {
   btn3radio3.attachPush(btn3PushCallback, &btn3radio3);
 
   //Page 3: Schalter
-  bMuteSwitch3.attachPop(bMuteSwitch2PopCallback, &bMuteSwitch3);  // Mute/Unmute Switch
+  bMuteSwitch3.attachPop(bMuteSwitch3PopCallback, &bMuteSwitch3);  // Mute/Unmute Switch
   //4er Buttons
   btn0switch3.attachPush(btn0PushCallback, &btn0switch3);
   btn1switch3.attachPush(btn1PushCallback, &btn1switch3);
@@ -510,8 +510,8 @@ void setup(void) {
   btn3pod4.attachPush(btn3PushCallback, &btn3pod4);
 
   //Page 4: Radio
-  bMuteRadio4.attachPush(bMuteRadio3PushCallback, &bMuteRadio4);   // Unmute Button 
-  bMuteRadio4.attachPop(bMuteRadio3PopCallback, &bMuteRadio4);     // Mute Button 
+  bMuteRadio4.attachPush(bMuteRadio4PushCallback, &bMuteRadio4);   // Unmute Button 
+  bMuteRadio4.attachPop(bMuteRadio4PopCallback, &bMuteRadio4);     // Mute Button 
   //4er Buttons
   btn0radio4.attachPush(btn0PushCallback, &btn0radio4);
   btn1radio4.attachPush(btn1PushCallback, &btn1radio4);
@@ -519,7 +519,7 @@ void setup(void) {
   btn3radio4.attachPush(btn3PushCallback, &btn3radio4);
 
   //Page 4: Schalter
-  bMuteSwitch4.attachPop(bMuteSwitch2PopCallback, &bMuteSwitch4);  // Mute/Unmute Switch
+  bMuteSwitch4.attachPop(bMuteSwitch4PopCallback, &bMuteSwitch4);  // Mute/Unmute Switch
   //4er Buttons
   btn0switch4.attachPush(btn0PushCallback, &btn0switch4);
   btn1switch4.attachPush(btn1PushCallback, &btn1switch4);
