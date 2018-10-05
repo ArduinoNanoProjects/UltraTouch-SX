@@ -28,15 +28,9 @@
 //Bibliothek:
 #include "Nextion.h"
 
-
-//Angaben der Mute Seiten
-#define Page1 ON
-#define Page2 OFF
-#define Page3 OFF
-#define Page4 OFF
-
 // LED Pins
 #define LED 13      // OnBoard LED des Arduino Nanos
+
 
 // Vars
 int Switch1 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 1
@@ -120,33 +114,34 @@ NexDSButton bMuteSwitch3 = NexDSButton(11, 9, "bMuteSwitch3"); // Mute/Unmute Sw
 
 // PAGE 4
 //pPodcast: (ID:12)
-NexButton btn0pod = NexButton(12, 4, "btn0pod");             // Button top/left
-NexButton btn1pod = NexButton(12, 5, "btn1pod");             // Button top/right
-NexButton btn2pod = NexButton(12, 6, "btn2pod");             // Button down/left
-NexButton btn3pod = NexButton(12, 7, "btn3pod");             // Button down/right
-NexButton bMutePod = NexButton(12, 9, "bMutePod");           // Mute Button
+NexButton btn0pod4 = NexButton(12, 4, "btn0pod4");             // Button top/left
+NexButton btn1pod4 = NexButton(12, 5, "btn1pod4");             // Button top/right
+NexButton btn2pod4 = NexButton(12, 6, "btn2pod4");             // Button down/left
+NexButton btn3pod4 = NexButton(12, 7, "btn3pod4");             // Button down/right
+NexButton bMutePod4 = NexButton(12, 9, "bMutePod");           // Mute Button
 
 //pRadio: (ID:13)
-NexButton btn0radio = NexButton(13, 4, "btn0radio");         // Button top/left
-NexButton btn1radio = NexButton(13, 5, "btn1radio");         // Button top/right
-NexButton btn2radio = NexButton(13, 6, "btn2radio");         // Button down/left
-NexButton btn3radio = NexButton(13, 7, "btn3radio");         // Button down/right
-NexButton bMuteRadio = NexButton(13, 9, "bMuteRadio");       // Unmute Button
+NexButton btn0radio4 = NexButton(13, 4, "btn0radio44");         // Button top/left
+NexButton btn1radio4 = NexButton(13, 5, "btn1radio4");         // Button top/right
+NexButton btn2radio4 = NexButton(13, 6, "btn2radio4");         // Button down/left
+NexButton btn3radio4 = NexButton(13, 7, "btn3radio4");         // Button down/right
+NexButton bMuteRadio4 = NexButton(13, 9, "bMuteRadio4");       // Unmute Button
 
 //pSchalter: (ID:14)
-NexButton btn0switch = NexButton(14, 4, "btn0switch");       // Button top/left
-NexButton btn1switch = NexButton(14, 5, "btn1switch");       // Button top/right
-NexButton btn2switch = NexButton(14, 6, "btn2switch");       // Button down/left
-NexButton btn3switch = NexButton(14, 7, "btn3switch");       // Button down/right
-NexDSButton bMuteSwitch = NexDSButton(14, 9, "bMuteSwitch"); // Mute/Unmute Switch
+NexButton btn0switch4 = NexButton(14, 4, "btn0switch4");       // Button top/left
+NexButton btn1switch4 = NexButton(14, 5, "btn1switch4");       // Button top/right
+NexButton btn2switch4 = NexButton(14, 6, "btn2switch4");       // Button down/left
+NexButton btn3switch4 = NexButton(14, 7, "btn3switch4");       // Button down/right
+NexDSButton bMuteSwitch4 = NexDSButton(14, 9, "bMuteSwitch4"); // Mute/Unmute Switch
 */
 
-//Seiten
+
+/*
+// PAGES OVERVIEW
 NexPage pStart      = NexPage(0, 0, "Start");
 NexPage pPodcast1    = NexPage(1, 0, "pPodcast1");
 NexPage pRadio1      = NexPage(2, 0, "pRadio1");
 NexPage pSchalter1   = NexPage(3, 0, "pSchalter1");
-/*
 NexPage pTmenu      = NexPage(4, 0, "pTmenu");
 NexPage pPodcast2    = NexPage(5, 0, "pPodcast2");
 NexPage pRadio2      = NexPage(6, 0, "pRadio2");
@@ -412,7 +407,7 @@ void setup(void) {
 
   // Angaben aller Pop- und Push-Events als Callback
   // PAGE 1
-  /* Page 1: Podcast */
+  //Page 1: Podcast
   bMutePod1.attachPush(bMutePodcast1PushCallback, &bMutePod1);     // Mute Button 
   bMutePod1.attachPop(bMutePodcast1PopCallback, &bMutePod1);       // Unmute Button 
   //4er Buttons
@@ -421,7 +416,7 @@ void setup(void) {
   btn2pod1.attachPush(btn2PushCallback, &btn2pod1);
   btn3pod1.attachPush(btn3PushCallback, &btn3pod1);
 
-  /* Page 1: Radio */
+  //Page 1: Radio 
   bMuteRadio1.attachPush(bMuteRadio1PushCallback, &bMuteRadio1);   // Unmute Button 
   bMuteRadio1.attachPop(bMuteRadio1PopCallback, &bMuteRadio1);     // Mute Button 
   //4er Buttons
@@ -429,8 +424,8 @@ void setup(void) {
   btn1radio1.attachPush(btn1PushCallback, &btn1radio1);
   btn2radio1.attachPush(btn2PushCallback, &btn2radio1);
   btn3radio1.attachPush(btn3PushCallback, &btn3radio1);
-
-  /* Page 1: Schalter */
+  
+  //Page 1: Schalter
   bMuteSwitch1.attachPop(bMuteSwitch1PopCallback, &bMuteSwitch1);  // Mute/Unmute Switch
   //4er Buttons
   btn0switch1.attachPush(btn0PushCallback, &btn0switch1);
@@ -525,8 +520,7 @@ void setup(void) {
   btn1switch4.attachPush(btn1PushCallback, &btn1switch4);
   btn2switch4.attachPush(btn2PushCallback, &btn2switch4);
   btn3switch4.attachPush(btn3PushCallback, &btn3switch4);
-*/
-  
+*/ 
 
   // Setze LED auf Ausgabe:
   pinMode(LED, OUTPUT);
