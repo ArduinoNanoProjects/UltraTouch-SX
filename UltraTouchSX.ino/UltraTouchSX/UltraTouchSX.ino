@@ -68,8 +68,15 @@
 // BIBLIOTHEK:
 #include "Nextion.h"
 
+#include <Adafruit_NeoPixel.h>
+#ifdef __AVR__
+  #include <avr/power.h>
+#endif
+
 // LED PIN:
-#define LED 13      // OnBoard LED des Arduino Nanos
+#define LED         13   // OnBoard LED des Arduino Nanos
+#define PIN         12   // Signal Pin für NeoPixel
+#define NUMPIXELS    5   // Anzahl der NeoPixel
 
 // VARS:
 int Switch1 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 1
@@ -78,13 +85,16 @@ int Switch2 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 2
 int Switch3 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 3
 int Switch4 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 4
 */
+int Modus = 1;
+
+// NEOPIXEL:
+Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
 
 
 /**
  * Deklaration der Obejekte für das Nextion-Display:
- * 
- * Example: (page id = 0, component id = 1, component name = "b0")
+ * Bsp.: (page id = 0, component id = 1, component name = "b0")
 */
 // PAGE 1:
 //pPodcast1 (ID:1)
@@ -100,10 +110,10 @@ NexButton btn2radio1 = NexButton(2, 6, "btn2radio1");          // Button down/le
 NexButton btn3radio1 = NexButton(2, 7, "btn3radio1");          // Button down/right
 NexButton bMuteRadio1 = NexButton(2, 9, "bMuteRadio1");        // Unmute Button
 //pSchalter1 (ID:3)
-NexButton btn0switch1 = NexButton(3, 4, "btn0switch");         // Button top/left
-NexButton btn1switch1 = NexButton(3, 5, "btn1switch");         // Button top/right
-NexButton btn2switch1 = NexButton(3, 6, "btn2switch");         // Button down/left
-NexButton btn3switch1 = NexButton(3, 7, "btn3switch");         // Button down/right
+NexButton btn0switch1 = NexButton(3, 4, "btn0switch1");         // Button top/left
+NexButton btn1switch1 = NexButton(3, 5, "btn1switch1");         // Button top/right
+NexButton btn2switch1 = NexButton(3, 6, "btn2switch1");         // Button down/left
+NexButton btn3switch1 = NexButton(3, 7, "btn3switch1");         // Button down/right
 NexDSButton bMuteSwitch1 = NexDSButton(3, 9, "bMuteSwitch1");  // Mute/Unmute Switch
 
 /*
@@ -211,6 +221,10 @@ NexTouch *nex_listen_list[] = {
   &btn2radio1,
   &btn3radio1,
   &bMuteSwitch1,
+  &btn0switch1,
+  &btn1switch1,
+  &btn2switch1,
+  &btn3switch1,
 
 /*
   // Page 2:
@@ -225,6 +239,10 @@ NexTouch *nex_listen_list[] = {
   &btn2radio2,
   &btn3radio2,
   &bMuteSwitch2,
+  &btn0switch2,
+  &btn1switch2,
+  &btn2switch2,
+  &btn3switch2,
 
   // Page 3:
   &bMutePod3,
@@ -238,6 +256,10 @@ NexTouch *nex_listen_list[] = {
   &btn2radio3,
   &btn3radio3,
   &bMuteSwitch3,
+  &btn0switch3,
+  &btn1switch3,
+  &btn2switch3,
+  &btn3switch3,
 
   // Page 4:
   &bMutePod4,
@@ -251,6 +273,10 @@ NexTouch *nex_listen_list[] = {
   &btn2radio4,
   &btn3radio4,
   &bMuteSwitch4,
+  &btn0switch4,
+  &btn1switch4,
+  &btn2switch4,
+  &btn3switch4,
 */
   NULL
 };
@@ -264,14 +290,14 @@ NexTouch *nex_listen_list[] = {
 */
 // PAGE 1: CALLBACKS PODCAST
 void bMutePodcast1PushCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPushCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
   Speak("OFF", 1);
+  NeoTop(255, 0, 0);
+  Modus = 1;
 }
 void bMutePodcast1PopCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPopCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
   Speak("ON", 1);
+  NeoTop(90, 255, 0);
+  Modus = 1;
 }
 /*
 // PAGE 2: CALLBACKS PODCAST
@@ -314,14 +340,14 @@ void bMutePodcast4PopCallback(void *ptr) {
 */
 // PAGE 1: CALLBACKS RADIO
 void bMuteRadio1PushCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPushCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
+  NeoTop(90, 255, 0);
   Speak("ON", 1);
+  Modus = 0;
 }
 void bMuteRadio1PopCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPopCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
+  NeoTop(255, 0, 0);
   Speak("OFF", 1);
+  Modus = 0;
 }
 /*
 // PAGE 2: CALLBACKS RADIO
@@ -366,12 +392,14 @@ void bMuteRadio4PopCallback(void *ptr) {
 void bMuteSwitch1PopCallback(void *ptr) {
   Switch1 = !Switch1;
   if (Switch1 == HIGH) {
-    digitalWrite(LED, HIGH);
+    NeoTop(90, 255, 0);
     Speak("ON", 1);
+    Modus = 1;
   }
   if (Switch1 == LOW) {
-    digitalWrite(LED, LOW);
+    NeoTop(255, 0, 0);
     Speak("OFF", 1);
+    Modus = 0;
   }
 }
 /*
@@ -418,25 +446,75 @@ void bMuteSwitch4PopCallback(void *ptr) {
 */
 // PAGE 1 - 4: BUTTON TOP LEFT
 void btn0PushCallback(void *ptr) {
+  if(Modus == 1){
+    NeoTop(255, 20, 0);  
+  }
+  if(Modus == 0){
+    NeoTop(90, 255, 0);
+  }
   digitalWrite(LED, HIGH);
   delay(500);
   digitalWrite(LED, LOW);
   delay(500);
+  if(Modus == 1){
+    NeoTop(90, 255, 0);
+  }
+  if(Modus == 0){
+    NeoTop(255, 20, 0);
+  }
 }
 // PAGE 1 - 4: BUTTON TOP RIGHT
 void btn1PushCallback(void *ptr) {
+  if(Modus == 1){
+    NeoTop(255, 20, 0);  
+  }
+  if(Modus == 0){
+    NeoTop(90, 255, 0);
+  }
   digitalWrite(LED, LOW);
+  delay(500);
+  if(Modus == 1){
+    NeoTop(90, 255, 0);
+  }
+  if(Modus == 0){
+    NeoTop(255, 20, 0);
+  }
 }
 // PAGE 1 - 4: BUTTON DOWN LEFT
 void btn2PushCallback(void *ptr) {
+  if(Modus == 1){
+    NeoTop(255, 20, 0);  
+  }
+  if(Modus == 0){
+    NeoTop(90, 255, 0);
+  }
   digitalWrite(LED, HIGH);
+  delay(500);
+  if(Modus == 1){
+    NeoTop(90, 255, 0);
+  }
+  if(Modus == 0){
+    NeoTop(255, 20, 0);
+  }
 }
 // PAGE 1 - 4: BUTTON DOWN RIGHT
 void btn3PushCallback(void *ptr) {
+  if(Modus == 1){
+    NeoTop(255, 20, 0);  
+  }
+  if(Modus == 0){
+    NeoTop(90, 255, 0);
+  }
   digitalWrite(LED, HIGH);
   delay(150);
   digitalWrite(LED, LOW);
   delay(300);
+  if(Modus == 1){
+    NeoTop(90, 255, 0);
+  }
+  if(Modus == 0){
+    NeoTop(255, 20, 0);
+  }
 }
 
 
@@ -446,6 +524,12 @@ void btn3PushCallback(void *ptr) {
 void setup(void) {
   /* Starte Serielle Kommunikation mit 9600 Baut */
   Serial.begin(9600);
+
+   // NeoPixel library.
+  #if defined (__AVR_ATtiny85__)
+    if (F_CPU == 16000000) clock_prescale_set(clock_div_1);
+  #endif
+  pixels.begin();   // init NeoPixel
   
   /* Initialisieren der Lib: ITEADLIB_Arduino_Nextion *
   nexInit();
@@ -544,6 +628,15 @@ void setup(void) {
 */ 
   /* Setze LED auf Ausgabe */
   pinMode(LED, OUTPUT);
+
+
+  rainbowCycle(1000);
+
+  delay(1000);
+
+  /* Setze NeoPixel auf Grün */
+  NeoTop(90, 255, 0);
+  NeoBottom(0, 255, 0);
 }
 
 
