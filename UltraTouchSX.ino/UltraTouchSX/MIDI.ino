@@ -3,14 +3,14 @@
  * 
  * Speak("ON/OFF");
  */
-void Speak(String State){
+void Speak(String State, int Page){
   //Unmute
   if(State == "ON"){
-    sendMidiCC(191, 1, 0);      // Unmute: CH 16, 0
+    sendMidiCC(191, Page, 0);      // Unmute: CH 16; C (1,2,3,4);  Vel 0
   }
   //Mute
   if(State == "OFF"){
-    sendMidiCC(191, 1, 127);    // Mute:  CH 16, 127
+    sendMidiCC(191, Page, 127);    // Mute:  CH 16; C (1,2,3,4);  Vel 127
   }
 }
 
