@@ -629,9 +629,8 @@ void setup(void) {
   /* Setze LED auf Ausgabe */
   pinMode(LED, OUTPUT);
 
-
+  /* Starte Regenbogen für NeoPixel Test */
   rainbowCycle(1000);
-
   delay(1000);
 
   /* Setze NeoPixel auf Grün */
