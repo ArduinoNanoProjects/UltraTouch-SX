@@ -79,127 +79,63 @@
 #define NUMPIXELS    5   // Anzahl der NeoPixel
 
 // VARS:
-int Switch1 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 1
-/*
-int Switch2 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 2
-int Switch3 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 3
-int Switch4 = HIGH;  // Speichert den Wert des MIDI-Schalters für Seiten 4
-*/
-int Modus = 1;
+int Toggle      = HIGH;  // Speichert den Wert des Button Peak View
+int Switch      = HIGH;  // Speichert den Wert des MIDI-Schalters 
+int Bridhness   = 255;   // Speichert den Wert der Helligkeit für die Bodenbeleuchtung
+int Modus       = 1;     // Speichert den Wert ob Mute oder Unmute für die Farben eines Callbacks
+int Channel     = 1;     // Speichert die Werte für die Kanäle 1 bis 4 für die Mute/Unmute Taste
+int Colors      = 1;     // Speichert die Werte für die Farben 1 bis 9 für die Bodenbeleuctung
+int Light       = 1;     // Speichert die Werte für die Helligkeit 1 bis 8 für die Bodenbeleuctung
+
+// VARS HCSR04
+int triggerPin  = 2;
+int echoPin     = 3;
+//int ergebnis    = 0;
+//long messung    = 0;
+//int mapping;
+
 
 // NEOPIXEL:
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
-
 
 
 /**
  * Deklaration der Obejekte für das Nextion-Display:
  * Bsp.: (page id = 0, component id = 1, component name = "b0")
 */
-// PAGE 1:
+// PAGES:
 //pPodcast1 (ID:1)
-NexButton btn0pod1 = NexButton(1, 4, "btn0pod1");              // Button top/left
-NexButton btn1pod1 = NexButton(1, 5, "btn1pod1");              // Button top/right
-NexButton btn2pod1 = NexButton(1, 6, "btn2pod1");              // Button down/left
-NexButton btn3pod1 = NexButton(1, 7, "btn3pod1");              // Button down/right
-NexButton bMutePod1 = NexButton(1, 9, "bMutePod1");            // Mute Button
+NexButton btn0pod = NexButton(1, 3, "btn0pod");                 // Button top/left
+NexButton btn1pod = NexButton(1, 4, "btn1pod");                 // Button top/right
+NexButton btn2pod = NexButton(1, 5, "btn2pod");                 // Button down/left
+NexButton btn3pod = NexButton(1, 6, "btn3pod");                 // Button down/right
+NexButton btnMutePod = NexButton(1, 8, "btnMutePod");           // Mute Button
 //pRadio1 (ID:2)
-NexButton btn0radio1 = NexButton(2, 4, "btn0radio1");          // Button top/left
-NexButton btn1radio1 = NexButton(2, 5, "btn1radio1");          // Button top/right
-NexButton btn2radio1 = NexButton(2, 6, "btn2radio1");          // Button down/left
-NexButton btn3radio1 = NexButton(2, 7, "btn3radio1");          // Button down/right
-NexButton bMuteRadio1 = NexButton(2, 9, "bMuteRadio1");        // Unmute Button
+NexButton btn0radio = NexButton(2, 3, "btn0radio");             // Button top/left
+NexButton btn1radio = NexButton(2, 4, "btn1radio");             // Button top/right
+NexButton btn2radio = NexButton(2, 5, "btn2radio");             // Button down/left
+NexButton btn3radio = NexButton(2, 6, "btn3radio");             // Button down/right
+NexButton btnMuteRadio = NexButton(2, 8, "btnMuteRadio");       // Unmute Button
 //pSchalter1 (ID:3)
-NexButton btn0switch1 = NexButton(3, 4, "btn0switch1");         // Button top/left
-NexButton btn1switch1 = NexButton(3, 5, "btn1switch1");         // Button top/right
-NexButton btn2switch1 = NexButton(3, 6, "btn2switch1");         // Button down/left
-NexButton btn3switch1 = NexButton(3, 7, "btn3switch1");         // Button down/right
-NexDSButton bMuteSwitch1 = NexDSButton(3, 9, "bMuteSwitch1");  // Mute/Unmute Switch
+NexButton btn0switch = NexButton(3, 3, "btn0switch");           // Button top/left
+NexButton btn1switch = NexButton(3, 4, "btn1switch");           // Button top/right
+NexButton btn2switch = NexButton(3, 5, "btn2switch");           // Button down/left
+NexButton btn3switch = NexButton(3, 6, "btn3switch");           // Button down/right
+NexDSButton btnMuteSwitch = NexDSButton(3, 8, "btnMuteSwitch"); // Mute/Unmute Switch
 
-/*
-// PAGE 2:
-//pPodcast2 (ID:5)
-NexButton btn0pod2 = NexButton(5, 4, "btn0pod2");              // Button top/left
-NexButton btn1pod2 = NexButton(5, 5, "btn1pod2");              // Button top/right
-NexButton btn2pod2 = NexButton(5, 6, "btn2pod2");              // Button down/left
-NexButton btn3pod2 = NexButton(5, 7, "btn3pod2");              // Button down/right
-NexButton bMutePod2 = NexButton(5, 9, "bMutePod2");            // Mute Button
-//pRadio2 (ID:6)
-NexButton btn0radio2 = NexButton(6, 4, "btn0radio2");          // Button top/left
-NexButton btn1radio2 = NexButton(6, 5, "btn1radio2");          // Button top/right
-NexButton btn2radio2 = NexButton(6, 6, "btn2radio2");          // Button down/left
-NexButton btn3radio2 = NexButton(6, 7, "btn3radio2");          // Button down/right
-NexButton bMuteRadio2 = NexButton(6, 9, "bMuteRadio2");        // Unmute Button
-//pSchalter2 (ID:7)
-NexButton btn0switch2 = NexButton(7, 4, "btn0switch2");        // Button top/left
-NexButton btn1switch2 = NexButton(7, 5, "btn1switch2");        // Button top/right
-NexButton btn2switch2 = NexButton(7, 6, "btn2switch2");        // Button down/left
-NexButton btn3switch2 = NexButton(7, 7, "btn3switch2");        // Button down/right
-NexDSButton bMuteSwitch2 = NexDSButton(7, 9, "bMuteSwitch2");  // Mute/Unmute Switch
+// MENU:
+//pTmenu (ID:4)
+NexButton bGoPage = NexButton(4, 1, "bGoPage");                // Button Channel (1 bis 4)
+NexButton bGoColor = NexButton(4, 7, "bGoColor");              // Button Color 
+NexButton bGoLight = NexButton(4, 8, "bGoLight");              // Button Helligkeit
 
-
-
-// PAGE 3:
-//pPodcast3 (ID:9)
-NexButton btn0pod3 = NexButton(9, 4, "btn0pod3");              // Button top/left
-NexButton btn1pod3 = NexButton(9, 5, "btn1pod3");              // Button top/right
-NexButton btn2pod3 = NexButton(9, 6, "btn2pod3");              // Button down/left
-NexButton btn3pod3 = NexButton(9, 7, "btn3pod3");              // Button down/right
-NexButton bMutePod3 = NexButton(9, 9, "bMutePod3");            // Mute Button
-//pRadio3 (ID:10)
-NexButton btn0radio3 = NexButton(10, 4, "btn0radio3");         // Button top/left
-NexButton btn1radio3 = NexButton(10, 5, "btn1radio3");         // Button top/right
-NexButton btn2radio3 = NexButton(10, 6, "btn2radio3");         // Button down/left
-NexButton btn3radio3 = NexButton(10, 7, "btn3radio3");         // Button down/right
-NexButton bMuteRadio3 = NexButton(10, 9, "bMuteRadio3");       // Unmute Button
-//pSchalter3 (ID:11)
-NexButton btn0switch3 = NexButton(11, 4, "btn0switch3");       // Button top/left
-NexButton btn1switch3 = NexButton(11, 5, "btn1switch3");       // Button top/right
-NexButton btn2switch3 = NexButton(11, 6, "btn2switch3");       // Button down/left
-NexButton btn3switch3 = NexButton(11, 7, "btn3switch3");       // Button down/right
-NexDSButton bMuteSwitch3 = NexDSButton(11, 9, "bMuteSwitch3"); // Mute/Unmute Switch
-
-
-
-// PAGE 4:
-//pPodcast4 (ID:12)
-NexButton btn0pod4 = NexButton(12, 4, "btn0pod4");             // Button top/left
-NexButton btn1pod4 = NexButton(12, 5, "btn1pod4");             // Button top/right
-NexButton btn2pod4 = NexButton(12, 6, "btn2pod4");             // Button down/left
-NexButton btn3pod4 = NexButton(12, 7, "btn3pod4");             // Button down/right
-NexButton bMutePod4 = NexButton(12, 9, "bMutePod");            // Mute Button
-//pRadio4 (ID:13)
-NexButton btn0radio4 = NexButton(13, 4, "btn0radio44");        // Button top/left
-NexButton btn1radio4 = NexButton(13, 5, "btn1radio4");         // Button top/right
-NexButton btn2radio4 = NexButton(13, 6, "btn2radio4");         // Button down/left
-NexButton btn3radio4 = NexButton(13, 7, "btn3radio4");         // Button down/right
-NexButton bMuteRadio4 = NexButton(13, 9, "bMuteRadio4");       // Unmute Button
-//pSchalter4 (ID:14)
-NexButton btn0switch4 = NexButton(14, 4, "btn0switch4");       // Button top/left
-NexButton btn1switch4 = NexButton(14, 5, "btn1switch4");       // Button top/right
-NexButton btn2switch4 = NexButton(14, 6, "btn2switch4");       // Button down/left
-NexButton btn3switch4 = NexButton(14, 7, "btn3switch4");       // Button down/right
-NexDSButton bMuteSwitch4 = NexDSButton(14, 9, "bMuteSwitch4"); // Mute/Unmute Switch
-*/
-
-
-/*
 // PAGES OVERVIEW:
 NexPage pStart      = NexPage(0, 0, "Start");
-NexPage pPodcast1    = NexPage(1, 0, "pPodcast1");
-NexPage pRadio1      = NexPage(2, 0, "pRadio1");
-NexPage pSchalter1   = NexPage(3, 0, "pSchalter1");
+NexPage pPodcast    = NexPage(1, 0, "pPodcast");
+NexPage pRadio      = NexPage(2, 0, "pRadio");
+NexPage pSchalter   = NexPage(3, 0, "pSchalter");
 NexPage pTmenu      = NexPage(4, 0, "pTmenu");
-NexPage pPodcast2    = NexPage(5, 0, "pPodcast2");
-NexPage pRadio2      = NexPage(6, 0, "pRadio2");
-NexPage pSchalter2   = NexPage(7, 0, "pSchalter2");
-NexPage pPodcast3    = NexPage(9, 0, "pPodcast3");
-NexPage pRadio3      = NexPage(10, 0, "pRadio3");
-NexPage pSchalter3   = NexPage(11, 0, "pSchalter3");
-NexPage pPodcast4    = NexPage(11, 0, "pPodcast4");
-NexPage pRadio4      = NexPage(12, 0, "pRadio4");
-NexPage pSchalter4   = NexPage(13, 0, "pSchalter4");
-*/
+
 
 
 
@@ -209,237 +145,140 @@ NexPage pSchalter4   = NexPage(13, 0, "pSchalter4");
 char buffer[100] = {0};
 
 NexTouch *nex_listen_list[] = {
-  // Page 1:
-  &bMutePod1,
-  &btn0pod1,
-  &btn1pod1,
-  &btn2pod1,
-  &btn3pod1,
-  &bMuteRadio1,
-  &btn0radio1,
-  &btn1radio1,
-  &btn2radio1,
-  &btn3radio1,
-  &bMuteSwitch1,
-  &btn0switch1,
-  &btn1switch1,
-  &btn2switch1,
-  &btn3switch1,
-
-/*
-  // Page 2:
-  &bMutePod2,
-  &btn0pod2,
-  &btn1pod2,
-  &btn2pod2,
-  &btn3pod2,
-  &bMuteRadio2,
-  &btn0radio2,
-  &btn1radio2,
-  &btn2radio2,
-  &btn3radio2,
-  &bMuteSwitch2,
-  &btn0switch2,
-  &btn1switch2,
-  &btn2switch2,
-  &btn3switch2,
-
-  // Page 3:
-  &bMutePod3,
-  &btn0pod3,
-  &btn1pod3,
-  &btn2pod3,
-  &btn3pod3,
-  &bMuteRadio3,
-  &btn0radio3,
-  &btn1radio3,
-  &btn2radio3,
-  &btn3radio3,
-  &bMuteSwitch3,
-  &btn0switch3,
-  &btn1switch3,
-  &btn2switch3,
-  &btn3switch3,
-
-  // Page 4:
-  &bMutePod4,
-  &btn0pod4,
-  &btn1pod4,
-  &btn2pod4,
-  &btn3pod4,
-  &bMuteRadio4,
-  &btn0radio4,
-  &btn1radio4,
-  &btn2radio4,
-  &btn3radio4,
-  &bMuteSwitch4,
-  &btn0switch4,
-  &btn1switch4,
-  &btn2switch4,
-  &btn3switch4,
-*/
+  // Pages:
+  &btnMutePod,
+  &btn0pod,
+  &btn1pod,
+  &btn2pod,
+  &btn3pod,
+  &btnMuteRadio,
+  &btn0radio,
+  &btn1radio,
+  &btn2radio,
+  &btn3radio,
+  &btnMuteSwitch,
+  &btn0switch,
+  &btn1switch,
+  &btn2switch,
+  &btn3switch,
+  // Menu
+  &bGoPage,
+  &bGoColor,
+  &bGoLight,
   NULL
 };
 
+
 /**
- * EVENT CALLBACKS:
+ * MENU CALLBACKS:
  */
+// MENU: CHANNEL
+void bGoChannelPushCallback(void *ptr) {
+  Channel = Channel +1 ;
+  if (Channel == 5) {
+    Channel = 1;
+  }
+}
+
+// MENU: COLOR
+void bGoColorPushCallback(void *ptr) {
+  Colors = Colors +1 ;
+  NeoBottomSwitch(Colors);
+}
+
+// MENU: BRIDHNESS
+void bGoLightPushCallback(void *ptr) {
+  Light = Light +1 ;
+  if (Light == 1) {
+    Bridhness = 255;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 2) {
+    Bridhness = 0;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 3) {
+    Bridhness = 25;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 4) {
+    Bridhness = 60;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 5) {
+    Bridhness = 110;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 6) {
+    Bridhness = 160;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 7) {
+    Bridhness = 200;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 8) {
+    Bridhness = 230;
+    NeoBottomSwitch(Colors);
+  }
+  if (Light == 9) {
+    Bridhness = 255;
+    NeoBottomSwitch(Colors);
+    Light = 1;
+  }
+}
+
 
 /**
  * PODCAST: MUTE/UNMUTE
 */
 // PAGE 1: CALLBACKS PODCAST
-void bMutePodcast1PushCallback(void *ptr) {
-  Speak("OFF", 1);
-  NeoTop(255, 0, 0);
+void bMutePodcastPushCallback(void *ptr) {
+  Speak("OFF", Channel);
+  NeoTop(Bridhness, 0, 0);
   Modus = 1;
 }
-void bMutePodcast1PopCallback(void *ptr) {
-  Speak("ON", 1);
-  NeoTop(90, 255, 0);
+void bMutePodcastPopCallback(void *ptr) {
+  Speak("ON", Channel);
+  NeoTop(0, Bridhness, 0);
   Modus = 1;
 }
-/*
-// PAGE 2: CALLBACKS PODCAST
-void bMutePodcast2PushCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPushCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
-  Speak("OFF", 2);
-}
-void bMutePodcast2PopCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPopCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
-  Speak("ON", 2);
-}
-// PAGE 3: CALLBACKS PODCAST
-void bMutePodcast3PushCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPushCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
-  Speak("OFF", 3);
-}
-void bMutePodcast3PopCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPopCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
-  Speak("ON", 3);
-}
-// PAGE 4: CALLBACKS PODCAST
-void bMutePodcast4PushCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPushCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
-  Speak("OFF", 4);
-}
-void bMutePodcast4PopCallback(void *ptr) {
-  dbSerialPrintln("bMutePodcastPopCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
-  Speak("ON", 4);
-}
-*/
+
 
 /**
  * RADIO: UNMUTE/MUTE
 */
 // PAGE 1: CALLBACKS RADIO
-void bMuteRadio1PushCallback(void *ptr) {
-  NeoTop(90, 255, 0);
-  Speak("ON", 1);
+void bMuteRadioPushCallback(void *ptr) {
+  NeoTop(0, Bridhness, 0);
+  Speak("ON", Channel);
   Modus = 0;
 }
-void bMuteRadio1PopCallback(void *ptr) {
-  NeoTop(255, 0, 0);
-  Speak("OFF", 1);
+void bMuteRadioPopCallback(void *ptr) {
+  NeoTop(Bridhness, 0, 0);
+  Speak("OFF", Channel);
   Modus = 0;
 }
-/*
-// PAGE 2: CALLBACKS RADIO
-void bMuteRadio2PushCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPushCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
-  Speak("ON", 2);
-}
-void bMuteRadio2PopCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPopCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
-  Speak("OFF", 2);
-}
-// PAGE 3: CALLBACKS RADIO
-void bMuteRadio3PushCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPushCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
-  Speak("ON", 3);
-}
-void bMuteRadio3PopCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPopCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
-  Speak("OFF", 3);
-}
-// PAGE 4: CALLBACKS RADIO
-void bMuteRadio4PushCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPushCallback");
-  digitalWrite(LED, LOW);  // Turn OFF internal LED
-  Speak("ON", 4);
-}
-void bMuteRadio4PopCallback(void *ptr) {
-  dbSerialPrintln("bMuteRadioPopCallback");
-  digitalWrite(LED, HIGH);  // Turn ON internal LED
-  Speak("OFF", 4);
-}
-*/
+
 
 /**
  * SCHALTER: SWITCH MUTE/UNMUTE
 */
 // PAGE 1: CALLBACKS SWITCH
-void bMuteSwitch1PopCallback(void *ptr) {
-  Switch1 = !Switch1;
-  if (Switch1 == HIGH) {
-    NeoTop(90, 255, 0);
-    Speak("ON", 1);
+void bMuteSwitchPopCallback(void *ptr) {
+  Switch = !Switch;
+  if (Switch == HIGH) {
+    NeoTop(0, Bridhness, 0);
+    Speak("ON", Channel);
     Modus = 1;
   }
-  if (Switch1 == LOW) {
-    NeoTop(255, 0, 0);
-    Speak("OFF", 1);
+  if (Switch == LOW) {
+    NeoTop(Bridhness, 0, 0);
+    Speak("OFF", Channel);
     Modus = 0;
   }
 }
-/*
-// PAGE 2: CALLBACKS SWITCH
-void bMuteSwitch2PopCallback(void *ptr) {
-  Switch2 = !Switch2;
-  if (Switch2 == HIGH) {
-    digitalWrite(LED, HIGH);
-    Speak("ON", 2);
-  }
-  if (Switch2 == LOW) {
-    digitalWrite(LED, LOW);
-    Speak("OFF", 2);
-  }
-}
-// PAGE 3: CALLBACKS SWITCH
-void bMuteSwitch3PopCallback(void *ptr) {
-  Switch3 = !Switch3;
-  if (Switch3 == HIGH) {
-    digitalWrite(LED, HIGH);
-    Speak("ON", 3);
-  }
-  if (Switch3 == LOW) {
-    digitalWrite(LED, LOW);
-    Speak("OFF", 3);
-  }
-}
-// PAGE 4: CALLBACKS SWITCH
-void bMuteSwitch4PopCallback(void *ptr) {
-  Switch4 = !Switch4;
-  if (Switch4 == HIGH) {
-    digitalWrite(LED, HIGH);
-    Speak("ON", 4);
-  }
-  if (Switch4 == LOW) {
-    digitalWrite(LED, LOW);
-    Speak("OFF", 4);
-  }
-}
-*/
+
 
 /*
  * BUTTONS: 4er Buttons
@@ -447,13 +286,14 @@ void bMuteSwitch4PopCallback(void *ptr) {
 // PAGE 1 - 4: BUTTON TOP LEFT
 void btn0PushCallback(void *ptr) {
   if(Modus == 1){
-    NeoTop(255, 20, 0);  
+    NeoTop(Bridhness, 0, 0);  
   }
   if(Modus == 0){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
   }
   digitalWrite(LED, HIGH);
   delay(500);
+  Note(1);
   digitalWrite(LED, LOW);
   delay(500);
   if(Modus == 1){
@@ -463,57 +303,75 @@ void btn0PushCallback(void *ptr) {
     NeoTop(255, 20, 0);
   }
 }
+
 // PAGE 1 - 4: BUTTON TOP RIGHT
 void btn1PushCallback(void *ptr) {
+  Toggle = !Toggle;
   if(Modus == 1){
-    NeoTop(255, 20, 0);  
+    NeoTop(Bridhness, 0, 0);  
   }
   if(Modus == 0){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
+  }
+  //-MIDI AUSGABE
+  digitalWrite(LED, HIGH);
+  delay(500);
+  if(Toggle == LOW){
+    Note(4);
+  } else {
+    Note(5);
   }
   digitalWrite(LED, LOW);
   delay(500);
   if(Modus == 1){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
   }
   if(Modus == 0){
-    NeoTop(255, 20, 0);
+    NeoTop(Bridhness, 0, 0);
   }
 }
+
 // PAGE 1 - 4: BUTTON DOWN LEFT
 void btn2PushCallback(void *ptr) {
   if(Modus == 1){
-    NeoTop(255, 20, 0);  
+    NeoTop(Bridhness, 0, 0);  
   }
   if(Modus == 0){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
   }
+  //-MIDI AUSGABE
   digitalWrite(LED, HIGH);
   delay(500);
+  Note(2);
+  digitalWrite(LED, LOW);
+  delay(500);
   if(Modus == 1){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
   }
   if(Modus == 0){
-    NeoTop(255, 20, 0);
+    NeoTop(Bridhness, 0, 0);
   }
 }
+
 // PAGE 1 - 4: BUTTON DOWN RIGHT
 void btn3PushCallback(void *ptr) {
   if(Modus == 1){
-    NeoTop(255, 20, 0);  
+    NeoTop(Bridhness, 0, 0);  
   }
   if(Modus == 0){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
   }
+  //-MIDI AUSGABE
   digitalWrite(LED, HIGH);
-  delay(150);
+  delay(500);
+  Note(3);
   digitalWrite(LED, LOW);
-  delay(300);
+  delay(500);
   if(Modus == 1){
-    NeoTop(90, 255, 0);
+    NeoTop(0, Bridhness, 0);
   }
   if(Modus == 0){
-    NeoTop(255, 20, 0);
+    NeoTop(Bridhness, 0, 0);
   }
 }
 
@@ -535,101 +393,39 @@ void setup(void) {
   nexInit();
 
   /* Angaben aller Pop- und Push-Events als Callback */
-  // PAGE 1:
-  //Events Podcast1
-  bMutePod1.attachPush(bMutePodcast1PushCallback, &bMutePod1);     // Mute Button 
-  bMutePod1.attachPop(bMutePodcast1PopCallback, &bMutePod1);       // Unmute Button 
-  btn0pod1.attachPush(btn0PushCallback, &btn0pod1);
-  btn1pod1.attachPush(btn1PushCallback, &btn1pod1);
-  btn2pod1.attachPush(btn2PushCallback, &btn2pod1);
-  btn3pod1.attachPush(btn3PushCallback, &btn3pod1);
-  //Events Radio1 
-  bMuteRadio1.attachPush(bMuteRadio1PushCallback, &bMuteRadio1);   // Unmute Button 
-  bMuteRadio1.attachPop(bMuteRadio1PopCallback, &bMuteRadio1);     // Mute Button 
-  btn0radio1.attachPush(btn0PushCallback, &btn0radio1);
-  btn1radio1.attachPush(btn1PushCallback, &btn1radio1);
-  btn2radio1.attachPush(btn2PushCallback, &btn2radio1);
-  btn3radio1.attachPush(btn3PushCallback, &btn3radio1);
-  //Events Schalter1
-  bMuteSwitch1.attachPop(bMuteSwitch1PopCallback, &bMuteSwitch1);  // Mute/Unmute Switch
-  btn0switch1.attachPush(btn0PushCallback, &btn0switch1);
-  btn1switch1.attachPush(btn1PushCallback, &btn1switch1);
-  btn2switch1.attachPush(btn2PushCallback, &btn2switch1);
-  btn3switch1.attachPush(btn3PushCallback, &btn3switch1);
-
-/*
-  // PAGE 2:
-  //Events Podcast2
-  bMutePod2.attachPush(bMutePodcast2PushCallback, &bMutePod2);     // Mute Button 
-  bMutePod2.attachPop(bMutePodcast2PopCallback, &bMutePod2);       // Unmute Button
-  btn0pod2.attachPush(btn0PushCallback, &btn0pod2);
-  btn1pod2.attachPush(btn1PushCallback, &btn1pod2);
-  btn2pod2.attachPush(btn2PushCallback, &btn2pod2);
-  btn3pod2.attachPush(btn3PushCallback, &btn3pod2);
-  //Events Radio2
-  bMuteRadio2.attachPush(bMuteRadio2PushCallback, &bMuteRadio2);   // Unmute Button 
-  bMuteRadio2.attachPop(bMuteRadio2PopCallback, &bMuteRadio2);     // Mute Button
-  btn0radio2.attachPush(btn0PushCallback, &btn0radio2);
-  btn1radio2.attachPush(btn1PushCallback, &btn1radio2);
-  btn2radio2.attachPush(btn2PushCallback, &btn2radio2);
-  btn3radio2.attachPush(btn3PushCallback, &btn3radio2);
-  //Events Schalter2
-  bMuteSwitch2.attachPop(bMuteSwitch2PopCallback, &bMuteSwitch2);  // Mute/Unmute Switch
-  btn0switch2.attachPush(btn0PushCallback, &btn0switch2);
-  btn1switch2.attachPush(btn1PushCallback, &btn1switch2);
-  btn2switch2.attachPush(btn2PushCallback, &btn2switch2);
-  btn3switch2.attachPush(btn3PushCallback, &btn3switch2);
-
-
-  // PAGE 3
-  //Events Podcast3
-  bMutePod3.attachPush(bMutePodcast3PushCallback, &bMutePod3);     // Mute Button 
-  bMutePod3.attachPop(bMutePodcast3PopCallback, &bMutePod3);       // Unmute Button
-  btn0pod3.attachPush(btn0PushCallback, &btn0pod3);
-  btn1pod3.attachPush(btn1PushCallback, &btn1pod3);
-  btn2pod3.attachPush(btn2PushCallback, &btn2pod3);
-  btn3pod3.attachPush(btn3PushCallback, &btn3pod3);
-  //Events Radio3
-  bMuteRadio3.attachPush(bMuteRadio3PushCallback, &bMuteRadio3);   // Unmute Button 
-  bMuteRadio3.attachPop(bMuteRadio3PopCallback, &bMuteRadio3);     // Mute Button
-  btn0radio3.attachPush(btn0PushCallback, &btn0radio3);
-  btn1radio3.attachPush(btn1PushCallback, &btn1radio3);
-  btn2radio3.attachPush(btn2PushCallback, &btn2radio3);
-  btn3radio3.attachPush(btn3PushCallback, &btn3radio3);
-  //Events Schalter3
-  bMuteSwitch3.attachPop(bMuteSwitch3PopCallback, &bMuteSwitch3);  // Mute/Unmute Switch
-  btn0switch3.attachPush(btn0PushCallback, &btn0switch3);
-  btn1switch3.attachPush(btn1PushCallback, &btn1switch3);
-  btn2switch3.attachPush(btn2PushCallback, &btn2switch3);
-  btn3switch3.attachPush(btn3PushCallback, &btn3switch3);
-
-
-  // PAGE 4:
   //Events Podcast
-  bMutePod4.attachPush(bMutePodcast4PushCallback, &bMutePod4);     // Mute Button 
-  bMutePod4.attachPop(bMutePodcast4PopCallback, &bMutePod4);       // Unmute Button
-  btn0pod4.attachPush(btn0PushCallback, &btn0pod4);
-  btn1pod4.attachPush(btn1PushCallback, &btn1pod4);
-  btn2pod4.attachPush(btn2PushCallback, &btn2pod4);
-  btn3pod4.attachPush(btn3PushCallback, &btn3pod4);
+  btnMutePod.attachPush(bMutePodcastPushCallback, &btnMutePod);     // Mute Button 
+  btnMutePod.attachPop(bMutePodcastPopCallback, &btnMutePod);       // Unmute Button 
+  btn0pod.attachPush(btn0PushCallback, &btn0pod);
+  btn1pod.attachPush(btn1PushCallback, &btn1pod);
+  btn2pod.attachPush(btn2PushCallback, &btn2pod);
+  btn3pod.attachPush(btn3PushCallback, &btn3pod);
   //Events Radio
-  bMuteRadio4.attachPush(bMuteRadio4PushCallback, &bMuteRadio4);   // Unmute Button 
-  bMuteRadio4.attachPop(bMuteRadio4PopCallback, &bMuteRadio4);     // Mute Button
-  btn0radio4.attachPush(btn0PushCallback, &btn0radio4);
-  btn1radio4.attachPush(btn1PushCallback, &btn1radio4);
-  btn2radio4.attachPush(btn2PushCallback, &btn2radio4);
-  btn3radio4.attachPush(btn3PushCallback, &btn3radio4);
+  btnMuteRadio.attachPush(bMuteRadioPushCallback, &btnMuteRadio);   // Unmute Button 
+  btnMuteRadio.attachPop(bMuteRadioPopCallback, &btnMuteRadio);     // Mute Button 
+  btn0radio.attachPush(btn0PushCallback, &btn0radio);
+  btn1radio.attachPush(btn1PushCallback, &btn1radio);
+  btn2radio.attachPush(btn2PushCallback, &btn2radio);
+  btn3radio.attachPush(btn3PushCallback, &btn3radio);
   //Events Schalter
-  bMuteSwitch4.attachPop(bMuteSwitch4PopCallback, &bMuteSwitch4);  // Mute/Unmute Switch
-  btn0switch4.attachPush(btn0PushCallback, &btn0switch4);
-  btn1switch4.attachPush(btn1PushCallback, &btn1switch4);
-  btn2switch4.attachPush(btn2PushCallback, &btn2switch4);
-  btn3switch4.attachPush(btn3PushCallback, &btn3switch4);
-*/
-
+  btnMuteSwitch.attachPop(bMuteSwitchPopCallback, &btnMuteSwitch);  // Mute/Unmute Switch
+  btn0switch.attachPush(btn0PushCallback, &btn0switch);
+  btn1switch.attachPush(btn1PushCallback, &btn1switch);
+  btn2switch.attachPush(btn2PushCallback, &btn2switch);
+  btn3switch.attachPush(btn3PushCallback, &btn3switch);
+  //Event Channel
+  bGoPage.attachPush(bGoChannelPushCallback, &bGoPage);
+  //Event Color
+  bGoColor.attachPush(bGoColorPushCallback, &bGoColor);
+  //Event Brightness
+  bGoLight.attachPush(bGoLightPushCallback, &bGoLight);
 
   /* Setze LED auf Ausgabe */
   pinMode(LED, OUTPUT);
+
+  /* Setze Ultrachall Sensor (HC-SR04) */
+  pinMode(triggerPin, OUTPUT);
+  pinMode(echoPin, INPUT);
 
   /* Starte Regenbogen für NeoPixel Test */
   rainbowCycle(1000);
@@ -647,4 +443,8 @@ void setup(void) {
 void loop(void) {
   /* Nutzen der Events */
   nexLoop(nex_listen_list);
+
+  /* Lese den Ultraschall-Sensor aus */
+  //HCSR04_Read();
+  sensorAbfragen(triggerPin, echoPin, 1);
 }

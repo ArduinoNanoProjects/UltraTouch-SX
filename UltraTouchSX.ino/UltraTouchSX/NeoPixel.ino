@@ -20,6 +20,39 @@ void NeoBottom(int r, int g, int b){
   delay(1); 
 }
 
+void NeoBottomSwitch(int ColorSwitch){
+  if (ColorSwitch == 1) {
+    NeoBottom(0, Bridhness, 0); //grün 
+  }
+  if (ColorSwitch == 2) {
+    NeoBottom(Bridhness/2+10, Bridhness, 0); //A grün
+  }
+  if (ColorSwitch == 3) {
+    NeoBottom(Bridhness, (Bridhness/2+50), 0); //gelb
+  }
+  if (ColorSwitch == 4) {
+    NeoBottom(Bridhness, (Bridhness / 2) - 60, 0); //orange
+  }
+  if (ColorSwitch == 5) {
+    NeoBottom(Bridhness, 0, 0); //rot 
+  }
+  if (ColorSwitch == 6) {
+    NeoBottom(Bridhness, 0, Bridhness); //pink 
+  }
+  if (ColorSwitch == 7) {
+    NeoBottom((Bridhness/2)-10, 0, Bridhness); //lila
+  }
+  if (ColorSwitch == 8) {
+    NeoBottom(0, 0, Bridhness); //blau 
+  }
+  if (ColorSwitch == 9) {
+    NeoBottom(0, Bridhness, Bridhness); //h. blau 
+  }
+  if (ColorSwitch == 10) { //grün
+    Colors = 1;
+    NeoBottom(0, Bridhness, 0); 
+  }
+}
 
 /**
  * Regenbogen der NeoPixel beim Starten des Arduinos

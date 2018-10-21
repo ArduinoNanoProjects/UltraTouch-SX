@@ -14,6 +14,14 @@ void Speak(String State, int Page){
   }
 }
 
+/**
+ * Sende eine Note mit an,aus
+ */
+void Note(int note){
+  sendMidiNote(159, note, 127);  // Note: 1/127
+  sendMidiNote(159, note, 0);    // Note: 1/0
+}
+
 //------------------------- Functions --------------------
 
 /**
@@ -36,6 +44,13 @@ void sendMidiCC(int channel, int controler, int value) {
   Serial.write(controler);  // Controler Number: 0-99
   Serial.write(value);      // On/Off: 0/127
 }
+
+void sendeMIDI(byte statusByte, byte dataByte1, byte dataByte2) {
+ Serial.write(statusByte);
+ Serial.write(dataByte1);
+ Serial.write(dataByte2);
+}
+
 
 /**
  * sendMidiNote()
