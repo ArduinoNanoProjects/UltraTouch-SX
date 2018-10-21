@@ -15,7 +15,7 @@
  * 
  * @developer   Michael McCouman Jr.
  * @version     UT[SX] V6
- * @date        4.Okt 2018
+ * @date        4.Okt 2018 - 06.Okt 2018
  * @git:        https://github.com/McCouman
  * @website     https://wikibyte.org
  * 
@@ -90,10 +90,6 @@ int Light       = 1;     // Speichert die Werte für die Helligkeit 1 bis 8 für
 // VARS HCSR04
 int triggerPin  = 2;
 int echoPin     = 3;
-//int ergebnis    = 0;
-//long messung    = 0;
-//int mapping;
-
 
 // NEOPIXEL:
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
@@ -135,8 +131,6 @@ NexPage pPodcast    = NexPage(1, 0, "pPodcast");
 NexPage pRadio      = NexPage(2, 0, "pRadio");
 NexPage pSchalter   = NexPage(3, 0, "pSchalter");
 NexPage pTmenu      = NexPage(4, 0, "pTmenu");
-
-
 
 
 /**
