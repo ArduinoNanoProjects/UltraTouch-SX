@@ -11,7 +11,12 @@
 * Display: DesignSX.tft (V2 & V4)
 * Arduino: UltraTouchSX.ino (V6.0)
 
+### Loading Screen
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot.png"/>
+
+### Mute/Unmute Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot1.png"/><br>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot2.png"/>
 
 Ultraschall MIDI Device (ultraschall.fm)
 
