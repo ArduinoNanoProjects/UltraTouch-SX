@@ -439,6 +439,5 @@ void loop(void) {
   nexLoop(nex_listen_list);
 
   /* Lese den Ultraschall-Sensor aus */
-  //HCSR04_Read();
   sensorAbfragen(triggerPin, echoPin, 1);
 }
