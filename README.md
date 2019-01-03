@@ -38,11 +38,23 @@ Für dieses Projekt habe ich den <a href="https://store.arduino.cc/arduino-nano"
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/Arduino%20Nano.png"/>
 
+
 ### HC-SR04 Sensor
+
+Das Ultraschall Modul HC-SR04 eignet sich zur Entfernungsmessung im Bereich zwischen 2cm und 2,5m mit einer Auflösung von 3mm. Es benötigt eine Versorgungsspannung von 5V bei einer Stromaufnahme von <2mA. Nach Triggerung misst das Modul
+selbstständig die Entfernung und wandelt diese in ein PWM Signal welches am Ausgang zur Verfügung steht. Ein Messintervall hat dabei eine Dauer von 20ms. Es können daher 50 Messungen pro Sekunde durchgeführt werden. Es dient hier der schnellen und einfachen Lautstärkenanpassung über <i>Reaper Ultraschall</i>.
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/HC-SR04.png"/>
 
-### NextionDisplay
+
+### WS-2812-B NeoPixel
+
+Ein WS2812B wird auch kurz Neopixel genannt und es handelt sich hier um feste oder als Streifen vorhältige RGB LED. Ich habe für den beleuchteten Boden, 6 NeoPixel genutzt. Es können natürlich mehr oder weniger genutzt werden ;)
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/WS2812B.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/NeoPixel.png"/>
+
+
+### Nextion Display
 
 Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache Möglichkeit sein eigenes Design und zusätzliche Software zu entwickeln. Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: 
 <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
@@ -62,9 +74,19 @@ Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/pho
 ##### Settings Screen
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot3.png"/>
 
-#### 3D Model
+#### 3D-Model
+
+Hier findest Du das 3D Modell für einen 3D Printer. Ich habe hier den Desktop 3D-Drucker Ender2 genutzt um das Gehäuse zu drucken. Der Druck besteht aus vier einzelnen Teilen:
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/3D-Model/Model.png" alt="UltraTouch Model für 3D Printer">
+
+- Body: ist das Gehäuse (schwarz: PLA)
+- top_box: ist der Verbund für das Display (silber: PLA)
+- Top: ist der obere Bereich der LED Box (silber: PETG)
+- Bottom: ist der untere Bereich der LED Box (silber: PETG)
+- Transparent: ist der Transparente Bereich der LED Box (transparent, dark glow: PLA)
+
+*Achtung: Je nach Material gibt es unterschiedliche fließverhalten der Kunststoffe. Sie haben daher unterschiedlichen Schwund beim Drucken. Möchte man ein z.B. rein PLA-Material nutzen, so muss das Design angepasst werden oder nachträglich bearbeitet werden.*
 
 ### GUI Development
 
@@ -77,17 +99,6 @@ Zum laden des Projektes muss die <a href="https://github.com/ArduinoNanoProjects
 ### API Development
 
 Hier findet sich der <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a> meiner UltraTouch SX in der Version 6.0 Variante. 
-
-
-
-
-
-
-
-
-
-
-
 
 
 
