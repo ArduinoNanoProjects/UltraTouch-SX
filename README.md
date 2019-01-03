@@ -4,7 +4,20 @@
 | | | || || |_  _ __   __ _   | |    ___   _   _   ___ | |__   \ `--.  \ V /
 | | | || || __|| '__| / _` |  | |   / _ \ | | | | / __|| '_ \   `--. \ /   \
 | |_| || || |_ | |   | (_| |  | |  | (_) || |_| || (__ | | | | /\__/ // /^\ \
- \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/   
+ \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/
+ 
+Die Version der UltraTouch SX (Version 6) ist ausgestattet mit einem Nextion Display und sie versendet MIDI zur Nutzung der Räuspertasten. Sie kann vielseitig genutzt und erweitert werden ;)
+
+Diese Idee entstand im Rahmen des Ultraschall-Projektes zum Themea: “MIDI Controller". Es gibt viele weitere Projekte von meinen Kollegen und der Podcast Community. Schau doch mal hier vorbei: https://ultraschall.fm
+
+@developer   Michael McCouman Jr.
+@version     UT[SX] V6
+@date        04.Okt 2018 - 03. Jan 2019
+@git:        https://github.com/McCouman
+@website     https://wikibyte.org
+
+Licence:     CC BY-NC-SA 4.0
+Link:        https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
 </pre>
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchV6_Overview.gif" alt="UltraTouch V6 - Overview">
