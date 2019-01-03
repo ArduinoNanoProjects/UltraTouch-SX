@@ -32,11 +32,17 @@ UltraTouch SX ist ein Midi-Controller für Podcaster. Sie kann als Räuspertaste
 
 ## Hard- und Software
 
-### Arduino Code
+### Arduino
 
 Für dieses Projekt habe ich den <a href="https://store.arduino.cc/arduino-nano">Arduino Nano [0]</a> verwendet. Beachte, wenn Du größere Projekte aufbauen möchtest oder mehr Buttons benötigst, braucht dein Arduino mehr Speicher. Du benötigst daher, auf jedem Falle einen größeren Arduino für dein Projekt!
 
-### Nextion Display
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/Arduino%20Nano.png"/>
+
+### HC-SR04 Sensor
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/HC-SR04.png"/>
+
+### NextionDisplay
 
 Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache Möglichkeit sein eigenes Design und zusätzliche Software zu entwickeln. Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: 
 <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
