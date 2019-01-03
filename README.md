@@ -24,6 +24,8 @@ Licence:     CC BY-NC-SA 4.0
 Link:        https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
 </pre>
 
+## Overview
+
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchV6_Overview.gif" alt="UltraTouch V6 - Overview">
 
 ### Arduino Code
