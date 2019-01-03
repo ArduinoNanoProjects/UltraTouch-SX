@@ -64,7 +64,7 @@ Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache 
 
 Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
 
-## Devopment
+## Development
 
 ### LCARS Style (Design)
 
