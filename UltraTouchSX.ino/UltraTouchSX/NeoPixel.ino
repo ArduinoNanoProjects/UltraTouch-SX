@@ -9,13 +9,23 @@
 void NeoTop(int r, int g, int b){
   pixels.setPixelColor(0, pixels.Color(r,g,b));
   pixels.setPixelColor(1, pixels.Color(r,g,b));
+  pixels.setPixelColor(2, pixels.Color(r,g,b));
+  pixels.setPixelColor(3, pixels.Color(r,g,b));
+  pixels.setPixelColor(4, pixels.Color(r,g,b));
+  pixels.setPixelColor(5, pixels.Color(r,g,b));
+  
   pixels.show();
   delay(1); 
 }
 void NeoBottom(int r, int g, int b){
-  pixels.setPixelColor(4, pixels.Color(r,g,b));
-  pixels.setPixelColor(3, pixels.Color(r,g,b));
+
+  pixels.setPixelColor(0, pixels.Color(r,g,b));
+  pixels.setPixelColor(1, pixels.Color(r,g,b));
   pixels.setPixelColor(2, pixels.Color(r,g,b));
+  pixels.setPixelColor(3, pixels.Color(r,g,b));
+  pixels.setPixelColor(4, pixels.Color(r,g,b));
+  pixels.setPixelColor(5, pixels.Color(r,g,b));
+
   pixels.show();
   delay(1); 
 }
