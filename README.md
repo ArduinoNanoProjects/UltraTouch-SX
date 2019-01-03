@@ -49,15 +49,20 @@ selbstständig die Entfernung und wandelt diese in ein PWM Signal welches am Aus
 
 ### WS-2812-B NeoPixel
 
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/NeoPixel.png"/>
+
 Ein WS2812B wird auch kurz Neopixel genannt und es handelt sich hier um feste oder als Streifen vorhältige RGB LED. Ich habe für den beleuchteten Boden, 6 NeoPixel genutzt. Es können natürlich mehr oder weniger genutzt werden ;)
 
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/WS2812B.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/NeoPixel.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/WS2812B.png"/> 
 
 
 ### Nextion Display
 
-Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache Möglichkeit sein eigenes Design und zusätzliche Software zu entwickeln. Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: 
-<a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
+Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache Möglichkeit sein eigenes Design und zusätzliche Software zu entwickeln. 
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/Nextion Display.png"/> 
+
+Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
 
 ## Devopment
 
