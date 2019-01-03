@@ -7,16 +7,30 @@
  \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/   
 </pre>
 
-* Design:  DesignSX.HMI (V2: 2 Mute buttons & V4:4 Mute buttons)
-* Display: DesignSX.tft (V2 & V4)
-* Arduino: UltraTouchSX.ino (V6.0)
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchV6_Overview.gif" alt="UltraTouch V6 - Overview">
 
-### Loading Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot.png"/>
+### Arduino Code
 
-### Mute/Unmute Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot1.png"/><br>
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot2.png"/>
+* Arduino: UltraTouchSX.ino (V2.1)
+<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a>.
+
+### 3D Model
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/3D-Model/Model.png" alt="UltraTouch Model für 3D Printer">
+
+* 3d Printer Model: UltraTouch-Box
+
+
+### Nextion Display: 
+- DesignSX.HMI, DesignSX.tft (V2 & V4)
+
+
+##### Loading Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot.png"/>
+
+##### Mute/Unmute Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/><br>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
 
 Ultraschall MIDI Device (ultraschall.fm)
 
