@@ -24,49 +24,64 @@ Licence:     CC BY-NC-SA 4.0
 Link:        https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
 </pre>
 
-## Overview
+# Overview
 
 UltraTouch SX ist ein Midi-Controller für Podcaster. Sie kann als Räuspertaste aufgebaut und genutzt werden. Dies ist eine kleine Idee, wie ein Controller erarbeitet und gebaut werden kann:   
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchV6_Overview.gif" alt="UltraTouch V6 - Overview">
 
-## Arduino Code
+## Hard- und Software
 
-Hier findet sich der <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a> meiner UltraTouch SX in der Version 6.0 Variante. Für dieses Projekt habe ich den <a href="https://store.arduino.cc/arduino-nano">Arduino Nano [0]</a> verwendet. Beachte, wenn Du größere Projekte aufbauen möchtest oder mehr Buttons benötigst, braucht dein Arduino mehr Speicher. Du benötigst daher, auf jedem Falle einen größeren Arduino für dein Projekt!
+### Arduino Code
 
-## Nextion Display
+Für dieses Projekt habe ich den <a href="https://store.arduino.cc/arduino-nano">Arduino Nano [0]</a> verwendet. Beachte, wenn Du größere Projekte aufbauen möchtest oder mehr Buttons benötigst, braucht dein Arduino mehr Speicher. Du benötigst daher, auf jedem Falle einen größeren Arduino für dein Projekt!
+
+### Nextion Display
 
 Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache Möglichkeit sein eigenes Design und zusätzliche Software zu entwickeln. Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: 
 <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
 
-### Design Screen
+## Devopment
 
-Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/tree/master/NextionDisplay/PSD">hier</a> geladen und verändert werden. 
+### LCARS Style (Design)
 
-Des weiteren wird die Nextion Editor IDE benötigt um den Kernel des Systems zu entwickeln. Sie ist leider nur für Windows nutzbar und kann <a href="https://nextion.itead.cc/resources/download/">hier [4]</a> heruntergeladen werden. 
+Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/tree/master/NextionDisplay/PSD">hier</a> geladen und verändert werden.
+
+#### Load Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot.png"/>
+
+##### Mute/Unmute Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
+
+##### Settings Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot3.png"/>
+
+#### 3D Model
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/3D-Model/Model.png" alt="UltraTouch Model für 3D Printer">
+
+### GUI Development
+
+Des weiteren wird die IDE: Nextion Editor benötigt, um den Kernel der GUI als laufendes Systems zu entwickeln. Die Software  ist leider nur für Windows erhältlich und kann direkt auf der Website von <a href="https://nextion.itead.cc/resources/download/">Nextion [4]</a> heruntergeladen werden. 
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot4.png"/>
 
-
 Zum laden des Projektes muss die <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/NextionDisplay/UltraTouchSX-LCARS.HMI">UltraTouchSX-LCARS.HMI</a> mit dem <i>Nextion Exitor</i> geladen werden.
 
+### API Development
+
+Hier findet sich der <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a> meiner UltraTouch SX in der Version 6.0 Variante. 
 
 
 
-#### Loading Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot.png"/>
-
-#### Mute/Unmute Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
-
-#### Settings Screen
-
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot3.png"/>
 
 
-### 3D Model
 
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/3D-Model/Model.png" alt="UltraTouch Model für 3D Printer">
+
+
+
+
+
 
 
 
