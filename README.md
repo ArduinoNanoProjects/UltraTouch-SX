@@ -79,9 +79,9 @@ Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/pho
 ##### Settings Screen
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot3.png"/>
 
-#### 3D-Model
+#### 3D-Modell
 
-Hier findest Du das 3D Modell für einen 3D Printer. Ich habe hier den Desktop 3D-Drucker Ender2 genutzt um das Gehäuse zu drucken. Der Druck besteht aus vier einzelnen Teilen:
+<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/tree/master/3D-Model">Hier</a> findest Du die 3d Modelle für das Gehäuse der UltraTouch SX für deinen 3D Printer. Ich habe hier den Desktop 3D-Drucker (Ender 2) genutzt, um das Gehäuse zu drucken. Der Druck besteht aus fünf einzelnen Modellen, die ich jedoch mit unterschiedlichen Materialien gedruckt habe:
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/3D-Model/Model.png" alt="UltraTouch Model für 3D Printer">
 
