@@ -32,27 +32,23 @@ UltraTouch SX ist ein Midi-Controller für Podcaster. Sie kann als Räuspertaste
 
 ## Arduino Code
 
-* Arduino: UltraTouchSX.ino (V2.1)
-<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a>.
+Hier findet sich der <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a> meiner UltraTouch SX in der Version 6.0 Variante. Für dieses Projekt habe ich den <a href="https://store.arduino.cc/arduino-nano">Arduino Nano [0]</a> verwendet. Beachte, wenn Du größere Projekte aufbauen möchtest oder mehr Buttons benötigst, braucht dein Arduino mehr Speicher. Du benötigst daher, auf jedem Falle einen größeren Arduino für dein Projekt!
 
 ## Nextion Display
 
 Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache Möglichkeit sein eigenes Design und zusätzliche Software zu entwickeln. Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: 
 <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
 
-
 ### Design Screen
 
-Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/tree/master/NextionDisplay/PSD">hier</a> geladen und verändert werden. Des weiteren wird die Nextion Editor IDE benötigt um den Kernel des Systems zu entwickeln. Sie ist leider nur für Windows nutzbar und kann <a href="https://nextion.itead.cc/resources/download/">hier [4]</a> heruntergeladen werden. Zum laden des Projektes muss die <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/NextionDisplay/UltraTouchSX-LCARS.HMI">UltraTouchSX-LCARS.HMI</a> mit dem <i>Nextion Exitor</i> geladen werden.
+Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/tree/master/NextionDisplay/PSD">hier</a> geladen und verändert werden. 
+
+Des weiteren wird die Nextion Editor IDE benötigt um den Kernel des Systems zu entwickeln. Sie ist leider nur für Windows nutzbar und kann <a href="https://nextion.itead.cc/resources/download/">hier [4]</a> heruntergeladen werden. 
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot4.png"/>
 
 
-
-
-
-
-
-
-
+Zum laden des Projektes muss die <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/NextionDisplay/UltraTouchSX-LCARS.HMI">UltraTouchSX-LCARS.HMI</a> mit dem <i>Nextion Exitor</i> geladen werden.
 
 
 
@@ -75,6 +71,7 @@ Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/pho
 
 
 ## Externe Links
+- [0] Arduino Nano: https://store.arduino.cc/arduino-nano
 - [1] Nextion Website: https://nextion.itead.cc
 - [2] Nextion Display 3,5": https://www.itead.cc/nextion-nx4832t035.html
 - [3] Photoshop: https://www.adobe.com/de/products/photoshop.html
