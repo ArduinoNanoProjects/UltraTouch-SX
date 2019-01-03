@@ -7,11 +7,14 @@
  *   \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/                                                                          
  *   
  * 
- * Die Version der UltraTouch SX (Version 6) ist ausgestattet mit einem Nextion Display und sie versendet MIDI zur Nutzung 
- * der Räuspertasten. Sie kann vielseitig genutzt und erweitert werden ;)
+ * Die Version der UltraTouch SX (Version 6) ist ausgestattet mit einem Nextion-Display (R) 
+ * und sie versendet MIDI zur Nutzung der Räuspertasten. Sie kann vielseitig genutzt, verändert 
+ * und eingesetzt werden ;)
  * 
- * Diese Projekt entstand im Rahmen des Ultraschall Projektes zum Themea: "MIDI Controller". Es gibt viele weitere Projekte 
- * von meinen Kollegen und der Community. Schaue doch mal vorbei: https://ultraschall.fm
+ * Diese Idee entstand im Rahmen des Ultraschall-Projektes zum Themea: "MIDI Controller". Es gibt 
+ * viele weitere Projekte von mir und meinen Kollegen. 
+ * Schaue doch mal vorbei: https://ultraschall.fm.
+ * 
  * 
  * @developer   Michael McCouman Jr.
  * @version     UT[SX] V6
@@ -90,7 +93,6 @@ int Light       = 1;     // Speichert die Werte für die Helligkeit 1 bis 8 für
 // VARS HCSR04
 int triggerPin  = 2;
 int echoPin     = 3;
-
 
 // NEOPIXEL:
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
@@ -417,6 +419,7 @@ void setup(void) {
   btn1pod.attachPush(btn1PushCallback, &btn1pod);
   btn2pod.attachPush(btn2PushCallback, &btn2pod);
   btn3pod.attachPush(btn3PushCallback, &btn3pod);
+  
   //Events Radio
   btnMuteRadio.attachPush(bMuteRadioPushCallback, &btnMuteRadio);   // Unmute Button 
   btnMuteRadio.attachPop(bMuteRadioPopCallback, &btnMuteRadio);     // Mute Button 
@@ -424,12 +427,14 @@ void setup(void) {
   btn1radio.attachPush(btn1PushCallback, &btn1radio);
   btn2radio.attachPush(btn2PushCallback, &btn2radio);
   btn3radio.attachPush(btn3PushCallback, &btn3radio);
+  
   //Events Schalter
-  btnMuteSwitch.attachPop(bMuteSwitchPopCallback, &btnMuteSwitch);  // Mute/Unmute Switch
+  btnMuteSwitch.attachPop(bMuteSwitchPopCallback, &btnMuteSwitch);  // Mute || Unmute Switch
   btn0switch.attachPush(btn0PushCallback, &btn0switch);
   btn1switch.attachPush(btn1PushCallback, &btn1switch);
   btn2switch.attachPush(btn2PushCallback, &btn2switch);
   btn3switch.attachPush(btn3PushCallback, &btn3switch);
+  
   //Event Channel
   bGoPage.attachPush(bGoChannelPushCallback, &bGoPage);
   //Event Color
