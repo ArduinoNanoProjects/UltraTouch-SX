@@ -4,21 +4,58 @@
 | | | || || |_  _ __   __ _   | |    ___   _   _   ___ | |__   \ `--.  \ V /
 | | | || || __|| '__| / _` |  | |   / _ \ | | | | / __|| '_ \   `--. \ /   \
 | |_| || || |_ | |   | (_| |  | |  | (_) || |_| || (__ | | | | /\__/ // /^\ \
- \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/   
+ \___/ |_| \__||_|    \__,_|  \_/   \___/  \__,_| \___||_| |_| \____/ \/   \/
+ 
+Die Version der UltraTouch SX (Version 6) ist ausgestattet mit einem Nextion Display 
+und sie versendet MIDI zur Nutzung der Räuspertasten. Sie kann vielseitig genutzt 
+und erweitert werden ;)
+
+Diese Idee entstand im Rahmen des Ultraschall-Projektes zum Themea: “MIDI Controller". 
+Es gibt viele weitere Projekte von meinen Kollegen und der Podcast Community. 
+Schau doch mal hier vorbei: https://ultraschall.fm
+
+@developer   Michael McCouman Jr.
+@version     UT[SX] V6
+@date        04.Okt 2018 - 03. Jan 2019
+@git:        https://github.com/McCouman
+@website     https://wikibyte.org
+
+Licence:     CC BY-NC-SA 4.0
+Link:        https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
 </pre>
 
-* Design:  DesignSX.HMI (V2: 2 Mute buttons & V4:4 Mute buttons)
-* Display: DesignSX.tft (V2 & V4)
-* Arduino: UltraTouchSX.ino (V6.0)
+## Overview
 
-### Loading Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchV6_Overview.gif" alt="UltraTouch V6 - Overview">
 
-### Mute/Unmute Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot1.png"/><br>
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/Screenshot2.png"/>
+### Arduino Code
 
-Ultraschall MIDI Device (ultraschall.fm)
+* Arduino: UltraTouchSX.ino (V2.1)
+<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/UltraTouchSX.ino/UltraTouchSX/UltraTouchSX.ino">Beispiel Code</a>.
+
+### Nextion Display: 
+- DesignSX.HMI, DesignSX.tft (V2 & V4)
+
+##### Loading Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot.png"/>
+
+##### Mute/Unmute Screen
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
+
+##### Settings Screen
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot3.png"/>
+
+
+### 3D Model
+
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/3D-Model/Model.png" alt="UltraTouch Model für 3D Printer">
+
+* 3d Printer Model: UltraTouch-Box
+
+
+
+
 
 ## Lizenz
 Diese Software steht unter CC BY-NC-SA 4.0 - Lizenz: Namensnennung - Nicht-kommerziell - Weitergabe unter gleichen Bedingungen 4.0 International (CC BY-NC-SA 4.0)
