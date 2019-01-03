@@ -38,8 +38,7 @@ Link:        https://creativecommons.org/licenses/by-nc-sa/4.0/deed.de
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot.png"/>
 
 ##### Mute/Unmute Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/><br>
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
 
 ##### Settings Screen
 
