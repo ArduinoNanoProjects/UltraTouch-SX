@@ -1,0 +1,46 @@
+<html>
+<head>
+<script type="text/javascript">
+//<![CDATA[
+function home() {
+    lcarsgen.container=document.getElementById("canvas");
+    lcarsgen.next_x = 10
+    lcarsgen.next_y = 10
+    lcarsgen.knee({x:10, height2: 40})
+    save_x = lcarsgen.next_x
+    lcarsgen.button({x:10, text:"Light", id:"b_light"})
+    lcarsgen.button({x:10, text:"Heating", id:"b_heating"})
+    lcarsgen.button({x:10, text:"Blinds", id:"b_blinds"})
+    lcarsgen.button({x:10, text:"Weather", id:"b_weather"})
+    lcarsgen.button({x:10, text:"Movies", id:"b_movies"})
+    lcarsgen.button({x:10, text:"Music", id:"b_music"})
+    lcarsgen.button({x:10, text:"Config", id:"b_config"})
+    lcarsgen.knee({x:10, height1: 120, height2: 40, type:"bottomleft"})
+    save_y = lcarsgen.next_y - lcarsgen.spacing - 40
+ 
+    // top bar
+    lcarsgen.next_x=save_x
+    lcarsgen.button({y: 10, width: 310, height: 40} )
+    lcarsgen.button({y: 10, width: 310, height: 40} )
+
+    // save for text display
+    tx = lcarsgen.next_x-lcarsgen.spacing
+    lcarsgen.button({y: 10, width: 55, height: 40, type:"rounded_right"} )
+
+    // bottom bar
+    lcarsgen.next_x=save_x
+    lcarsgen.button({y: save_y, width: 310, height: 40} )
+    lcarsgen.button({y: save_y, width: 310, height: 40} )
+    lcarsgen.button({y: save_y, width: 55, height: 40, type:"rounded_right"} )
+
+    lcarsgen.text({x:tx, y: 50, height: 40, text:"H.11 CONTROL", text_align: "right"} )
+}
+
+home();
+//]]>
+</script>
+</head>
+<body>
+<div id="canvas"></div>
+</body>
+</html>
