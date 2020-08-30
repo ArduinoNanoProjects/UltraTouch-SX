@@ -62,7 +62,7 @@ Das <a href="https://nextion.itead.cc">NextionDisplay [1]</a> ist eine einfache 
 
 <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/UltraTouchSX.ino/Nextion Display.png"/> 
 
-Die Software wird dabei direkt auf das Display gefläscht und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
+Die Software wird dabei direkt auf das Display geladen und kann über den Arduino angesprochen werden. Das in dieser Version genutzte Display ist das HMI TFT LCD Touch Display Module: <a href="https://www.itead.cc/nextion-nx4832t035.html">Nextion NX4832T035 - 3.5" [2]</a> (480 * 320). 
 
 ## Development
 
