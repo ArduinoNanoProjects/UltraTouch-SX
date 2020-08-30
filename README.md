@@ -118,11 +118,11 @@ Lade das "Betriebssystem" (<a href="https://github.com/ArduinoNanoProjects/Ultra
 
 ### GUI Development
 
-Des weiteren wird die IDE: Nextion Editor benötigt, um den Kernel der GUI als laufendes Systems zu entwickeln. Die Software  ist leider nur für Windows erhältlich und kann direkt auf der Website von <a href="https://nextion.itead.cc/resources/download/">Nextion [4]</a> heruntergeladen werden. 
+Des weiteren wird die IDE: Nextion Editor benötigt, um den Kernel der GUI als laufendes Systems zu entwickeln. Die Software ist leider nur für Windows erhältlich und kann direkt auf der Website von <a href="https://nextion.itead.cc/resources/download/">Nextion [4]</a> heruntergeladen werden. 
 
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot4.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/UltraTouchSX-LCARS_2019/Data/Screenshot4.png"/>
 
-Zum laden des Projektes muss die <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/blob/master/NextionDisplay/UltraTouchSX-LCARS.HMI">UltraTouchSX-LCARS.HMI</a> mit dem <i>Nextion Exitor</i> geladen werden.
+Zum laden des Projektes muss das "Betriebssystem", die <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-LCARS_2019/UltraTouchSX-LCARS.HMI">UltraTouchSX-LCARS.HMI</a> oder <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/UltraTouchSX6-US4.HMI">UltraTouchSX6-US4.HMI</a> mit dem <i>Nextion Exitor</i> geladen werden. Dabei wird des Betreibersystem auf das Display überspielt/geflashed.
 
 ### API Development
 
