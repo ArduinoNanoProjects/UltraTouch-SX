@@ -66,18 +66,37 @@ Die Software wird dabei direkt auf das Display gefläscht und kann über den Ard
 
 ## Development
 
-### LCARS Style (Design)
+### LCARS Style (Design 2019)
 
-Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/tree/master/NextionDisplay/PSD">hier</a> geladen und verändert werden.
+Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-LCARS_2019/Data/PSD/UltraTouchSX-LCARS.psd">hier</a> geladen und verändert werden.
 
 #### Load Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/UltraTouchSX-LCARS_2019/Data/Screenshot.png"/>
 
 ##### Mute/Unmute Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot1.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot2.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/UltraTouchSX-LCARS_2019/Data/Screenshot1.png"/> <img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/UltraTouchSX-LCARS_2019/Data/Screenshot2.png"/>
 
 ##### Settings Screen
-<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/Screenshot3.png"/>
+<img src="https://raw.githubusercontent.com/ArduinoNanoProjects/UltraTouch-SX/master/NextionDisplay/UltraTouchSX-LCARS_2019/Data/Screenshot3.png"/>
+
+
+### U4 Style (Design 2020)
+
+Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design 2020 kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/PSD/UltraTouchSX-U4.psd">hier</a> geladen und verändert werden.
+
+Lade das "Betriebssystem" (<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/UltraTouchSX6-US4.HMI">HMI</a>) auf das Nextion Display. Bearbeiten kannst Du es über das <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/UltraTouchSX6-US4.tft>UltraTouchSX6-US4.tft</a>.
+
+#### Load Screen
+<img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/Welcome/UltraTouchSX-U4_Welcome002.png"/>
+
+##### Mute/Unmute Screen
+<img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/Page_Podcast/UltraTouchSX-US4_Podcast-Start_001.png"/> <img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/Page_Podcast/UltraTouchSX-US4_Podcast-Mute.png"/>
+
+##### Settings Screen
+<img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/Page_Settings/UltraTouchSX-US4_Settings-ON.png"/> <img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/Page_Settings/Coloring/UltraTouchSX-Color-Gruen.png"/>
+
+
+
 
 #### 3D-Modell
 
