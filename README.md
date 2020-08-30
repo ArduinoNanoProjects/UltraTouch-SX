@@ -84,7 +84,11 @@ Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/pho
 
 Zur Entwicklung des Designs wurde <a href="https://www.adobe.com/de/products/photoshop.html">Photoshop <i>(R)(C)</i> [3]</a> benutzt. Das Design 2020 kann <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/PSD/UltraTouchSX-U4.psd">hier</a> geladen und verändert werden.
 
-Lade das "Betriebssystem" (<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/UltraTouchSX6-US4.HMI">HMI</a>) auf das Nextion Display. Bearbeiten kannst Du es über das <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/UltraTouchSX6-US4.tft>UltraTouchSX6-US4.tft</a>.
+<img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/EXCIhJOWAAAZZOf.gif"/>
+
+https://twitter.com/i/status/1256654848210198529
+
+Lade das "Betriebssystem" (<a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/UltraTouchSX6-US4.HMI">HMI</a>) auf das Nextion Display. Bearbeiten kannst Du es über das <a href="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/UltraTouchSX6-US4.tft">UltraTouchSX6-US4.tft</a>.
 
 #### Load Screen
 <img src="https://github.com/ArduinoNanoProjects/UltraTouch-SX/raw/master/NextionDisplay/UltraTouchSX-U4_2020/Design-UltraTouch%20SX6%20US4/Screens/Welcome/UltraTouchSX-U4_Welcome002.png"/>
