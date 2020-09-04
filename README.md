@@ -16,7 +16,7 @@ Schau doch mal hier vorbei: https://ultraschall.fm
 
 @developer   Michael McCouman Jr.
 @version     UT[SX] V6
-@date        04.Okt 2018 - 03. Jan 2019
+@date        04.Okt 2018 - 04.Seb 2020
 @git:        https://github.com/McCouman
 @website     https://wikibyte.org
 
